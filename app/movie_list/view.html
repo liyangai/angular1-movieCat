@@ -1,0 +1,41 @@
+<h1 class="page-header">{{title}}</h1>
+<h2 ng-if="message">{{message}}</h2>
+<div class="list-group">
+  <a  class="list-group-item">
+    <span class="badge">{{item.rating.average}}</span>
+    <div class="media">
+      <div class="media-left">
+        <img class="media-object"  alt="item.title" height="128">
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">{{item.title}}</h3>
+        <p>
+          类型：<span></span>&nbsp;&nbsp;&nbsp;&nbsp; 上映年份：
+          <span></span></p>
+        <p>
+          捣眼：
+          
+        </p>
+        <p>
+          主演：
+          
+        </p>
+      </div>
+    </div>
+  </a>
+</div>
+<div ng-show="!loading">
+  <p>总共：{{totalCount}}条记录，第{{currentPage}}/{{totalPages}}页</p>
+  <nav>
+    <ul class="pager">
+      <li ><a >« 上一页</a></li>
+      <li ><a >下一页 »</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="mask" ng-show="loading">
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+</div>
