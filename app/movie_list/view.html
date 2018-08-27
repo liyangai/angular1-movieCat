@@ -1,24 +1,27 @@
 <h1 class="page-header">{{title}}</h1>
 <h2 ng-if="message">{{message}}</h2>
 <div class="list-group">
-  <a  class="list-group-item">
+  <a  class="list-group-item" ng-repeat="item in subjects" href="#/detail/{{item.id}}">
     <span class="badge">{{item.rating.average}}</span>
     <div class="media">
       <div class="media-left">
-        <img class="media-object"  alt="item.title" height="128">
+        <img class="media-object" src="{{item.images.small}}"  alt="{{item.title}}" height="128">
       </div>
       <div class="media-body">
         <h3 class="media-heading">{{item.title}}</h3>
         <p>
-          类型：<span></span>&nbsp;&nbsp;&nbsp;&nbsp; 上映年份：
+          类型：<span>{{item.genres.join('、')}}</span>&nbsp;&nbsp;&nbsp;&nbsp; 上映年份：
           <span></span></p>
         <p>
           捣眼：
-          
+          <span ng-repeat="d in item.directors">{{d.name}}{{$last?'':'、'}}</span>
         </p>
         <p>
           主演：
-          
+          <span ng-repeat="c in item.casts">
+	        	{{c.name}}{{$last?'':'、'}}
+	        	<!-- <span ng-if="!$last">、</span> -->
+          </span>
         </p>
       </div>
     </div>
